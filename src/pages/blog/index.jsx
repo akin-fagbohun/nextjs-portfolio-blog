@@ -25,8 +25,8 @@ export default function Home() {
 
         {posts.map((post) => (
           // eslint-disable-next-line react/jsx-key
-          <div>
-            <Link key={post.id} href="/blog/[id]" as={`/blog/${post.id}`}>
+          <div key={post.id}>
+            <Link href="/blog/[id]" as={`/blog/${post.id}`}>
               <a>
                 <strong>{post.title}</strong>
               </a>
