@@ -1,0 +1,23 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+}
+
+.backToHome {
+  margin: 3rem 0 0;
+}
+
+.page_title {
+  padding-top: 50px;
+}
+
+.page_subtitle {
+  padding-top: 30px;
+}

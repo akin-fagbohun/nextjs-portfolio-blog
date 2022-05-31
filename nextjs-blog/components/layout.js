@@ -1,15 +1,17 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import styles from './layout.module.css';
+import styles from '../styles/layout.module.css';
 import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
+import Navbar from './Navbar';
+import Footer from './Footer';
 
 const name = 'Akin';
 export const siteTitle = "Akin's blog";
 
 export default function Layout({ children, home }) {
   return (
-    <div className={styles.container}>
+    <div className={styles.app}>
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
@@ -25,6 +27,7 @@ export default function Layout({ children, home }) {
         <meta name="og:title" content={siteTitle} />
         <meta name="github:card" content="summary_large_image" />
       </Head>
+      <Navbar />
       <header className={styles.header}>
         {home ? (
           <>
@@ -64,10 +67,11 @@ export default function Layout({ children, home }) {
       {!home && (
         <div className={styles.backToHome}>
           <Link href="/">
-            <a>← Back to home</a>
+            <a>← Back to posts</a>
           </Link>
         </div>
       )}
+      <Footer />
     </div>
   );
 }

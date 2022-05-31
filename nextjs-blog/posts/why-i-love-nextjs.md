@@ -1,6 +1,7 @@
 ---
 title: 'Why I Love Next.js'
 date: '2022-05-30'
+read: '4 min read'
 ---
 
 In one of my earlier projects, I created an article site where a user is able to navigate a UI that contains articles fetched by API from a database (which I also built). This got me thinking about this portfolio site and what I would like to do with it in the long term as I progress through my tech career.

@@ -20,9 +20,9 @@ export default function Home({ allPostsData }) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={utilStyles.headingMd}>
+      <section className={utilStyles.centered}>
         <p>
-          Hello, I'm Akin. I'm a front-end developer exploring new technologies
+          Hello, I'm Akin. I'm a full-stack developer exploring new technologies
           and documenting my journey through software development.
         </p>
         <p>
@@ -31,10 +31,10 @@ export default function Home({ allPostsData }) {
           read -I hope you enjoy!
         </p>
       </section>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+      <section className={`${utilStyles.left} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
+          {allPostsData.map(({ id, date, title, read }) => (
             <li className={utilStyles.listItem} key={id}>
               <Link href={`/blog/${id}`}>
                 <a>{title}</a>
@@ -42,7 +42,8 @@ export default function Home({ allPostsData }) {
               <br />
               <small className={utilStyles.lightText}>
                 <Date dateString={date} />
-              </small>
+              </small>{' '}
+              | <small className={utilStyles.lightText}>{read}</small>
             </li>
           ))}
         </ul>
