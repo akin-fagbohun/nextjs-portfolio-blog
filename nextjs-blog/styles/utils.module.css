@@ -12,6 +12,7 @@
   font-weight: 800;
   letter-spacing: -0.05rem;
   margin: 1rem 0;
+  padding: 0px 50px;
 }
 
 .headingLg {
@@ -23,6 +24,30 @@
 .headingMd {
   font-size: 1.2rem;
   line-height: 1.5;
+}
+
+.centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 30px;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  padding-left: 120px;
+  padding-right: 50px;
+  padding-top: 30px;
+  max-width: 50rem;
+  margin-top: 30px;
+  align-self: flex-start;
 }
 
 .borderCircle {
@@ -49,4 +74,46 @@
 
 .lightText {
   color: #666;
+}
+
+.postDetails {
+  padding-left: 50px;
+}
+
+.postData {
+  display: flex;
+  flex-direction: column;
+}
+
+.postData h2 {
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-top: 30px;
+}
+
+.postData pre {
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-top: 50px;
+  align-self: center;
+}
+
+@media (max-width: 600px) {
+  .centered {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .postData h2 {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .postData pre {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .left {
+    padding-left: 50px;
+  }
 }
