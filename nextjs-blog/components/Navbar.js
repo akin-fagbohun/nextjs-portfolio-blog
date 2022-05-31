@@ -1,49 +1,33 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import styles from '../styles/navbar.module.css';
 
 export default function Navbar() {
+  const router = useRouter();
+
   return (
     <nav>
       <div className={styles.nav_group}>
         <ul className={styles.nav_links}>
-          <li>
-            <Link
-              href="https://akin-fagbohun.netlify.app/"
-              className={({ isActive }) =>
-                isActive ? activeClassName : undefined
-              }
-              end
-            >
-              Home
-            </Link>
+          <li className={router.pathname == '/' ? `${styles.nav_focus}` : ''}>
+            <Link href="https://akin-fagbohun.netlify.app/">Home</Link>
           </li>
-          <li>
-            <Link
-              href="https://akin-fagbohun.netlify.app/about-me"
-              className={({ isActive }) =>
-                isActive ? activeClassName : undefined
-              }
-            >
-              About
-            </Link>
+          <li
+            className={
+              router.pathname == '/about-me' ? `${styles.nav_focus}` : ''
+            }
+          >
+            <Link href="https://akin-fagbohun.netlify.app/about-me">About</Link>
           </li>
-          <li>
-            <Link
-              href="/"
-              className={({ isActive }) =>
-                isActive ? activeClassName : undefined
-              }
-            >
-              Blog
-            </Link>
+          <li className={router.pathname == '/' ? `${styles.nav_focus}` : ''}>
+            <Link href="/">Blog</Link>
           </li>
-          <li>
-            <Link
-              href="https://akin-fagbohun.netlify.app/contact"
-              className={({ isActive }) =>
-                isActive ? activeClassName : undefined
-              }
-            >
+          <li
+            className={
+              router.pathname == '/contact' ? `${styles.nav_focus}` : ''
+            }
+          >
+            <Link href="https://akin-fagbohun.netlify.app/contact">
               Contact
             </Link>
           </li>

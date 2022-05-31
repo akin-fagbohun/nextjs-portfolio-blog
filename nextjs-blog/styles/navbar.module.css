@@ -21,14 +21,13 @@
   padding: 0;
 }
 
-.nav-links li {
+.nav_links li {
   margin: 10px;
 }
 
-.nav-focus {
+.nav_focus {
   color: black;
   font-weight: bold;
-  text-decoration: underline;
 }
 
 /* mobile breakpoints for navigation */
