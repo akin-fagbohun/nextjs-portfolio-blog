@@ -2,9 +2,5 @@
   command = "npm run build"
   publish = ".next"
 
-[[redirects]]
-  from = "/*"
-  to = "/blog/:splat"
-
 [[plugins]]
 package = "@netlify/plugin-nextjs"
