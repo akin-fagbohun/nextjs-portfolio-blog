@@ -20,7 +20,9 @@ export default function Navbar() {
             <Link href="https://akin-fagbohun.netlify.app/about-me">About</Link>
           </li>
           <li
-            className={router.pathname == '/blog' ? `${styles.nav_focus}` : ''}
+            className={
+              router.pathname.match(/\/blog/) ? `${styles.nav_focus}` : ''
+            }
           >
             <Link href="/blog">Blog</Link>
           </li>
