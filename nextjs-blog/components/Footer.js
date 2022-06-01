@@ -1,4 +1,4 @@
-import styles from '../components/footer.module.css';
+import styles from '../styles/layout.module.css';
 import { GithubLogo } from './icons/GithubLogo';
 import { NorthcodersLogo } from './icons/NorthcodersLogo';
 import { LinkedInLogo } from './icons/LinkedInLogo';
