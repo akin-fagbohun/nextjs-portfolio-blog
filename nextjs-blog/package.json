@@ -16,6 +16,7 @@
     "remark-html": "^15.0.1"
   },
   "devDependencies": {
-    "@svgr/webpack": "^6.2.1"
+    "@svgr/webpack": "^6.2.1",
+    "eslint": "^8.16.0"
   }
 }
