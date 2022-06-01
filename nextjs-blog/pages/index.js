@@ -22,13 +22,13 @@ export default function Home({ allPostsData }) {
       </Head>
       <section className={utilStyles.centered}>
         <p>
-          Hello, I'm Akin. I'm a full-stack developer exploring new technologies
-          and documenting my journey through software development.
+          Hello, I&apos;m Akin. I&apos;m a full-stack developer exploring new
+          technologies and documenting my journey through software development.
         </p>
         <p>
           As part of my foray into Next.js, I added this blog to my portfolio
-          site, so it's only right that I use it to share my thoughts! Have a
-          read -I hope you enjoy!
+          site, so it&apos;s only right that I use it to share my thoughts! Have
+          a read -I hope you enjoy!
         </p>
       </section>
       <section className={`${utilStyles.left} ${utilStyles.padding1px}`}>
