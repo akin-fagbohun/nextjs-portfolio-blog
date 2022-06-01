@@ -19,8 +19,10 @@ export default function Navbar() {
           >
             <Link href="https://akin-fagbohun.netlify.app/about-me">About</Link>
           </li>
-          <li className={router.pathname == '/' ? `${styles.nav_focus}` : ''}>
-            <Link href="/">Blog</Link>
+          <li
+            className={router.pathname == '/blog' ? `${styles.nav_focus}` : ''}
+          >
+            <Link href="/blog">Blog</Link>
           </li>
           <li
             className={
