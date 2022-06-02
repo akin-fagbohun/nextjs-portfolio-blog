@@ -23,14 +23,15 @@ If you’re not writing code, you might be wondering why we need to write tests 
 Let’s convert the exact test from above into a framework-style test for illustration.
 
 ```jsx
-<code>
-  const sum = (a, b) => a - b // Testing this function logic const result =
-  sum(1, 1) // calling our function with some values const expected = 2 // this
-  is what is referred to an assertion if (result !== expected){' '}
-  {console.log(
+const sum = (a, b) => a - b; // Testing this function logic const result =
+
+sum(1, 1); // calling our function with some values const expected = 2
+
+if (result !== expected) {
+  console.log(
     `The result, ${result} is not equal to the expected, ${expected}.`
-  )}
-</code>
+  );
+}
 ```
 
 So in the above snippet, I’m trying to check my logic in line 1. The value of result on line 3 will evaluate to be whatever the outcome of my function logic is. Next, on line 5, I’ve made an assertion about what I think the outcome will be — In this case, 2. Finally, I write a test case to check the result of my function against the expected outcome. If it fails, a message is printed to the console. The above test fails. Can you see why?
@@ -52,23 +53,21 @@ There are a bunch of ways in which we can use `expect` assertions to write tests
 When you run this code, the expect function is invoked with the result. Within the expect function, we have a `toBe` function which takes the value of expected and performs its comparison. Under the hood, that is how the `toBe` matcher works!
 
 ```jsx
-<code>
-	const sum = (a, b) => a - b // Faulty function logic
+const sum = (a, b) => a - b; // Faulty function logic
 
-	const result = sum(1, 1) // result
+const result = sum(1, 1); // result
 
-	const expected = 2  // Our assertion
+const expected = 2; // Our assertion
 
-	function expect(result) {
-	  return {
-	    toBe(expected) {
-	      if (actual !== expected) {
-	        throw new Error(`${actual} is not equal to ${expected}`)
-	      }
-	    },
-	  }
-	}
-</code>
+function expect(result) {
+  return {
+    toBe(expected) {
+      if (actual !== expected) {
+        throw new Error(`${actual} is not equal to ${expected}`);
+      }
+    },
+  };
+}
 ```
 
 Testing frameworks perform the above actions and more, in a much cleaner, more informative way that allows us to see what has been tested in the code base, and where any attention needs to be placed if we discover a bug.
