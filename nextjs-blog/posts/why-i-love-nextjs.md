@@ -21,9 +21,11 @@ Code splitting only loads what is necessary to serve the page that the client is
 Implementation is pretty easy, but there are a few gotcha’s to keep in mind. the relative link for your destination is added to the `Link` component, and we still need to wrap the link text in `<a></a>` tags, which is jarring at first sight considering that any css classes still need to be placed in the `<a>` tag... Even reading that back is a little weird, so here’s an example.
 
 ```jsx
-<Link href="/pages/internal-page">
-  <a className="someCssClass">Link Text</a>
-</Link>
+<code>
+  <Link href="/pages/internal-page">
+    <a className="someCssClass">Link Text</a>
+  </Link>
+</code>
 ```
 
 ## Styling
