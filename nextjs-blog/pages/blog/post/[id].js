@@ -19,7 +19,7 @@ export default function Post({ postData }) {
       <Head>
         <title>{postData.title}</title>
       </Head>
-      <article className={utilStyles.centered}>
+      <article>
         <h1 className={utilStyles.headingXl}>{postData.title}</h1>
         <div className={utilStyles.postDetails}>
           <div className={utilStyles.lightText}>

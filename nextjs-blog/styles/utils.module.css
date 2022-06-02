@@ -83,11 +83,26 @@
 .postData {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .postData h2 {
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-top: 30px;
+  align-self: flex-start;
+}
+
+.postData h3 {
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-top: 30px;
+  align-self: flex-start;
+}
+
+.postData p {
+  padding-left: 0px;
+  padding-right: 0px;
   margin-top: 30px;
 }
 
@@ -108,6 +123,7 @@
     padding-left: 30px;
     padding-right: 30px;
   }
+
   .postData pre {
     margin-left: auto;
     margin-right: auto;

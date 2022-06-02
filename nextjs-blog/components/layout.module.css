@@ -11,7 +11,13 @@
 }
 
 .backToHome {
-  margin: 3rem 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  margin-top: 30px;
+  margin-left: 70px;
+  /* min-width: 100vw; */
 }
 
 .page_title {

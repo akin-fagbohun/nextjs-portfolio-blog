@@ -96,18 +96,29 @@ select {
   }
 }
 
-.app {
-  height: 100vh;
-  width: 100vw;
-}
-
 html,
 body {
   font-family: poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   line-height: 1.6;
-  width: 100vw;
-  height: 100vh;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  min-width: 100vw;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  min-width: 100vw;
 }
 
 main {
@@ -117,6 +128,26 @@ main {
   margin-right: auto;
   align-items: center;
   max-width: 1080px;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  /* max-width: 1080px; */
+  /* min-height: 100vh;
+  min-width: 100vw; */
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
   min-height: 100vh;
   min-width: 100vw;
 }
@@ -137,6 +168,15 @@ a:hover {
 img {
   max-width: 100%;
   display: block;
+}
+
+h1,
+h2,
+h3 {
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 30px;
+  max-width: 50rem;
 }
 
 p {
