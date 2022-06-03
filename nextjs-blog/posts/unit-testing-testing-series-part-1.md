@@ -23,9 +23,9 @@ If you’re not writing code, you might be wondering why we need to write tests 
 Let’s convert the exact test from above into a framework-style test for illustration.
 
 ```jsx
-const sum = (a, b) => a - b; // Testing this function logic const result =
+const sum = (a, b) => a - b; // Testing this function logic
 
-sum(1, 1); // calling our function with some values const expected = 2
+const result = sum(1, 1); // calling our function with some values const expected = 2
 
 if (result !== expected) {
   console.log(
