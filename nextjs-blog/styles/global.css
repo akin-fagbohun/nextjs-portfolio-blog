@@ -149,7 +149,7 @@ article {
 }
 
 pre {
-  display: none;
+  white-space: pre-wrap;
 }
 
 footer {
