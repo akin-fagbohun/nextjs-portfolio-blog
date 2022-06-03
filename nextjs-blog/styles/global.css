@@ -114,6 +114,11 @@ body {
   min-height: 100vh;
 }
 
+code {
+  font-size: larger;
+  color: crimson;
+}
+
 nav {
   display: flex;
   flex-direction: column;
