@@ -12,7 +12,7 @@
   font-weight: 800;
   letter-spacing: -0.05rem;
   margin: 1rem 0;
-  padding: 0px 50px;
+  /* padding: 0px 50px; */
 }
 
 .headingLg {
@@ -77,7 +77,7 @@
 }
 
 .postDetails {
-  padding-left: 50px;
+  max-width: 1080px;
 }
 
 .postData {
