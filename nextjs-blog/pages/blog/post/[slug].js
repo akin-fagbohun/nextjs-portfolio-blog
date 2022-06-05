@@ -1,21 +1,10 @@
 import Head from 'next/head';
 import Layout from '../../../components/layout';
-import { getAllPostIds, getPostData } from '../../../lib/posts';
 import Date from '../../../components/date';
 import utilStyles from '../../../styles/utils.module.css';
-
-// export async function getStaticProps({ params }) {
-//   const postData = await getPostData(params.id);
-//   return {
-//     props: {
-//       postData,
-//     },
-//   };
-// }
+import { PortableText } from '@portabletext/react';
 
 export default function Post({ currPost }) {
-  console.log('🚀 ~ file: [slug].js ~ line 17 ~ Post ~ currPost', currPost);
-
   return (
     <Layout>
       <Head>
@@ -29,10 +18,12 @@ export default function Post({ currPost }) {
           </div>
           <small>{currPost[0].readTime} minute read</small>
         </div>
-        {/* <div
-          className={utilStyles.postData}
-          dangerouslySetInnerHTML={{ __html: currPost[0].contentRaw }}
-        /> */}
+        <div className={utilStyles.postData}>
+          <PortableText
+            value={currPost[0].contentRaw}
+            // components={/* optional object of custom components to use */}
+          />
+        </div>
       </article>
     </Layout>
   );
@@ -90,6 +81,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
+  // renamed slug to avoid collision.
   const { slug: urlString } = params;
 
   // GraphQL query to get all posts from Sanity
@@ -136,7 +128,7 @@ export async function getStaticProps({ params }) {
     };
   }
 
-  // filter the page to we need based on the slug from params
+  // filter page data based on the slug from params
   const currPost = allPosts.filter((post) => {
     const { slug } = post;
     const { current } = slug;
