@@ -1,4 +1,4 @@
-import fs from 'fs';
+// import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { remark } from 'remark';
@@ -64,22 +64,54 @@ export function getAllPostIds() {
 }
 
 export async function getPostData(id) {
-  const fullPath = path.join(postsDirectory, `${id}.md`);
-  const fileContents = fs.readFileSync(fullPath, 'utf8');
+  // GraphQL query to get all posts from Sanity
+  const graphQlQuery = `
+    query {
+      allPost (sort: {publishDate: DESC}) {
+        _id
+        title
+        publishDate
+        readTime
+        slug {current}
+        contentRaw 
+      }
+    }
+  `;
 
-  // Use gray-matter to parse the post metadata section
-  const matterResult = matter(fileContents);
+  // asyncronous FETCH request.
+  // Header deliberately set to POST
+  const getPosts = await fetch(
+    'https://hy1d38la.api.sanity.io/v1/graphql/production/default',
+    {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        query: graphQlQuery,
+        variables: {},
+      }),
+    }
+  );
 
-  // Use remark to convert markdown into HTML string
-  const processedContent = await remark()
-    .use(html)
-    .process(matterResult.content);
-  const contentHtml = processedContent.toString();
+  // awaiting the response
+  const response = await getPosts.json();
 
-  // Combine the data with the id and contentHtml
-  return {
-    id,
-    contentHtml,
-    ...matterResult.data,
-  };
+  // Destructure & rename response data for clarity
+  const { allPost: allPosts } = response.data;
+
+  // if no values, return empty array
+  if (!allPosts.length) {
+    return {
+      props: {
+        allPosts: [],
+      },
+    };
+  } else {
+    return {
+      props: {
+        allPosts,
+      },
+    };
+  }
 }
