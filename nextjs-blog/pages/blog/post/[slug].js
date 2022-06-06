@@ -3,8 +3,25 @@ import Layout from '../../../components/layout';
 import Date from '../../../components/date';
 import utilStyles from '../../../styles/utils.module.css';
 import { PortableText } from '@portabletext/react';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { nightOwl } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 
 export default function Post({ currPost }) {
+  const components = {
+    types: {
+      code: (props) => (
+        <SyntaxHighlighter
+          language={props.value.language}
+          style={nightOwl}
+          wrapLongLines="true"
+          showLineNumbers="true"
+        >
+          {props.value.code}
+        </SyntaxHighlighter>
+      ),
+    },
+  };
+
   return (
     <Layout>
       <Head>
@@ -21,7 +38,7 @@ export default function Post({ currPost }) {
         <div className={utilStyles.postData}>
           <PortableText
             value={currPost[0].contentRaw}
-            // components={/* optional object of custom components to use */}
+            components={components}
           />
         </div>
       </article>
