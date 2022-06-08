@@ -1,4 +1,3 @@
-// import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { remark } from 'remark';
@@ -95,23 +94,15 @@ export async function getPostData(id) {
   );
 
   // awaiting the response
-  const response = await getPosts.json();
+  const posts = await getPosts.json();
 
   // Destructure & rename response data for clarity
-  const { allPost: allPosts } = response.data;
+  const { allPost: allPosts } = posts.data;
 
   // if no values, return empty array
-  if (!allPosts.length) {
-    return {
-      props: {
-        allPosts: [],
-      },
-    };
-  } else {
-    return {
-      props: {
-        allPosts,
-      },
-    };
-  }
+  return {
+    props: {
+      allPosts: allPosts || [],
+    },
+  };
 }
