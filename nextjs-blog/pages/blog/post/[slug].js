@@ -4,7 +4,8 @@ import Date from '../../../components/date';
 import utilStyles from '../../../styles/utils.module.css';
 import { PortableText } from '@portabletext/react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import { nightOwl } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
+import { qtcreatorLight } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
+import { getAllPosts } from '../../../utils/api';
 
 export default function Post({ currPost }) {
   const components = {
@@ -12,7 +13,7 @@ export default function Post({ currPost }) {
       code: (props) => (
         <SyntaxHighlighter
           language={props.value.language}
-          style={nightOwl}
+          style={qtcreatorLight}
           wrapLongLines="true"
           showLineNumbers="true"
         >
@@ -47,40 +48,11 @@ export default function Post({ currPost }) {
 }
 
 export async function getStaticPaths() {
-  // GraphQL query to get all posts from Sanity
-  const graphQlQuery = `
-    query {
-      allPost (sort: {publishDate: DESC}) {
-        title
-        publishDate
-        readTime
-        slug {current}
-        contentRaw
-      }
-    }
-  `;
-
-  // asyncronous FETCH request.
-  // Header deliberately set to POST
-  const getPosts = await fetch(
-    'https://hy1d38la.api.sanity.io/v1/graphql/production/default',
-    {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify({
-        query: graphQlQuery,
-        variables: {},
-      }),
-    }
-  );
-
   // awaiting the response
-  const response = await getPosts.json();
+  const posts = await getAllPosts();
 
   // Destructure & rename response data to avoid name collision.
-  const { allPost: allPosts } = response.data;
+  const { allPost: allPosts } = posts.data;
 
   // map over json response to get URL slugs.
   const paths = allPosts.map((post) => {
@@ -101,40 +73,11 @@ export async function getStaticProps({ params }) {
   // renamed slug to avoid collision.
   const { slug: urlString } = params;
 
-  // GraphQL query to get all posts from Sanity
-  const graphQlQuery = `
-    query {
-      allPost (sort: {publishDate: DESC}) {
-        title
-        publishDate
-        readTime
-        slug {current}
-        contentRaw
-      }
-    }
-  `;
-
-  // asyncronous FETCH request.
-  // Header deliberately set to POST
-  const getPosts = await fetch(
-    'https://hy1d38la.api.sanity.io/v1/graphql/production/default',
-    {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify({
-        query: graphQlQuery,
-        variables: {},
-      }),
-    }
-  );
-
   // awaiting the response
-  const response = await getPosts.json();
+  const posts = await getAllPosts();
 
   // Destructure & rename response data to avoid name collision.
-  const { allPost: allPosts } = response.data;
+  const { allPost: allPosts } = posts.data;
 
   // if no values, return empty array
   if (!allPosts.length) {

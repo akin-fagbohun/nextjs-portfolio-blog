@@ -3,58 +3,20 @@ import Layout, { siteTitle } from '../../components/layout';
 import utilStyles from '../../styles/utils.module.css';
 import Link from 'next/link';
 import Date from '../../components/date';
+import { getAllPosts } from '../../utils/api';
 
 export async function getStaticProps() {
-  // GraphQL query to get all posts from Sanity
-  const graphQlQuery = `
-    query {
-      allPost (sort: {publishDate: DESC}) {
-        _id
-        title
-        publishDate
-        readTime
-        slug {current}
-        contentRaw 
-      }
-    }
-  `;
-
-  // asyncronous FETCH request.
-  // Header deliberately set to POST
-  const getPosts = await fetch(
-    'https://hy1d38la.api.sanity.io/v1/graphql/production/default',
-    {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify({
-        query: graphQlQuery,
-        variables: {},
-      }),
-    }
-  );
-
-  // awaiting the response
-  const response = await getPosts.json();
+  const posts = await getAllPosts();
 
   // Destructure & rename response data for clarity
-  const { allPost: allPosts } = response.data;
+  const { allPost: allPosts } = posts.data;
 
   // if no values, return empty array
-  if (!allPosts.length) {
-    return {
-      props: {
-        allPosts: [],
-      },
-    };
-  } else {
-    return {
-      props: {
-        allPosts,
-      },
-    };
-  }
+  return {
+    props: {
+      allPosts: allPosts || [],
+    },
+  };
 }
 
 export default function Home({ allPosts }) {
