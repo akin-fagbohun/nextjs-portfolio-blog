@@ -1,20 +1,25 @@
 import Head from 'next/head';
 import Layout, { siteTitle } from '../../components/layout';
 import utilStyles from '../../styles/utils.module.css';
-import { getSortedPostsData } from '../../lib/posts';
 import Link from 'next/link';
 import Date from '../../components/date';
+import { getAllPosts } from '../../utils/api';
 
 export async function getStaticProps() {
-  const allPostsData = getSortedPostsData();
+  const posts = await getAllPosts();
+
+  // Destructure & rename response data for clarity
+  const { allPost: allPosts } = posts.data;
+
+  // if no values, return empty array
   return {
     props: {
-      allPostsData,
+      allPosts: allPosts || [],
     },
   };
 }
 
-export default function Home({ allPostsData }) {
+export default function Home({ allPosts }) {
   return (
     <Layout home>
       <Head>
@@ -34,16 +39,19 @@ export default function Home({ allPostsData }) {
       <section className={`${utilStyles.left} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Latest posts</h2>
         <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title, read }) => (
-            <li className={utilStyles.listItem} key={id}>
-              <Link href={`/blog/post/${id}`}>
+          {allPosts.map(({ _id, slug, publishDate, title, readTime }) => (
+            <li className={utilStyles.listItem} key={_id}>
+              <Link href={`/blog/post/${slug.current}`}>
                 <a>{title}</a>
               </Link>
               <br />
               <small className={utilStyles.lightText}>
-                <Date dateString={date} />
+                <Date dateString={publishDate} />
               </small>{' '}
-              | <small className={utilStyles.lightText}>{read}</small>
+              |{' '}
+              <small className={utilStyles.lightText}>
+                {readTime} minute read
+              </small>
             </li>
           ))}
         </ul>
