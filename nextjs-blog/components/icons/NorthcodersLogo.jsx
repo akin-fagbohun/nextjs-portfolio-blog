@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from '../footer.module.css';
+import styles from '../../styles/footer.module.css';
 
 export const NorthcodersLogo = () => {
   const [hover, setHover] = useState(false);
