@@ -1,18 +1,14 @@
-/**
- * @jest-environment jsdom
- */
+import { expect, test } from '@jest/globals';
 import { render, screen } from '@testing-library/react';
 import Home from '../pages/blog/index';
 import '@testing-library/jest-dom';
 
-describe('Home', () => {
-  test('renders a heading', async () => {
-    const page = render(<Home />);
+test('checks for image on page', () => {
+  const sum = (a, b) => {
+    return a + b;
+  };
+  const a = 5;
 
-    const heading = await screen.getByRole('heading', {
-      name: /welcome to next\.js!/i,
-    });
-
-    expect(heading).toBeInTheDocument();
-  });
+  expect(a).toBe(5);
+  expect(sum(a, 2)).toBe(7);
 });
