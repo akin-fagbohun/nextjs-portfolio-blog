@@ -52,6 +52,7 @@ export async function getStaticProps() {
 
   // Destructure & rename response data for clarity
   const { allPost: allPosts } = posts.data;
+  console.log(allPosts);
 
   // if no values, return empty array
   return {

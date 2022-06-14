@@ -4,7 +4,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "lint": "next lint"
   },
   "dependencies": {
     "@portabletext/react": "^1.0.6",

@@ -1,13 +1,21 @@
 import { render, screen } from '@testing-library/react';
-import { Footer } from './Footer';
+import '@testing-library/jest-dom';
+import Footer from './Footer';
 
-describe('Test footer', () => {
-  beforeEach(() => {
-    render(<Footer />);
-  });
+test('Tests footer renders with link items', () => {
+  render(<Footer />);
 
-  test('should test footer renders', () => {
-    const github = screen.getByText('GitHub');
-    expect(github).toBeInTheDocument();
+  const github = screen.getByRole('link', {
+    name: /GitHub/,
   });
+  // const linkedin = screen.getByRole('link', {
+  //   name: /LinkedIn/,
+  // });
+  // const northcoders = screen.getByRole('link', {
+  //   name: /Northcoders/,
+  // });
+
+  expect(github).toBeInTheDocument();
+  expect(linkedin).toBeInTheDocument();
+  expect(northcoders).toBeInTheDocument();
 });
