@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import styles from './navbar.module.css';
+import styles from '../styles/navbar.module.css';
 
 export default function Navbar() {
   const router = useRouter();
@@ -9,14 +9,10 @@ export default function Navbar() {
     <nav>
       <div className={styles.nav_group}>
         <ul className={styles.nav_links}>
-          <li className={router.pathname == '/' ? `${styles.nav_focus}` : ''}>
+          <li>
             <Link href="https://akin-fagbohun.netlify.app/">Home</Link>
           </li>
-          <li
-            className={
-              router.pathname == '/about-me' ? `${styles.nav_focus}` : ''
-            }
-          >
+          <li>
             <Link href="https://akin-fagbohun.netlify.app/about-me">About</Link>
           </li>
           <li
@@ -26,11 +22,7 @@ export default function Navbar() {
           >
             <Link href="/blog">Blog</Link>
           </li>
-          <li
-            className={
-              router.pathname == '/contact' ? `${styles.nav_focus}` : ''
-            }
-          >
+          <li>
             <Link href="https://akin-fagbohun.netlify.app/contact">
               Contact
             </Link>

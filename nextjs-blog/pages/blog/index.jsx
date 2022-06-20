@@ -5,20 +5,6 @@ import Link from 'next/link';
 import Date from '../../components/date';
 import { getAllPosts } from '../../utils/api';
 
-export async function getStaticProps() {
-  const posts = await getAllPosts();
-
-  // Destructure & rename response data for clarity
-  const { allPost: allPosts } = posts.data;
-
-  // if no values, return empty array
-  return {
-    props: {
-      allPosts: allPosts || [],
-    },
-  };
-}
-
 export default function Home({ allPosts }) {
   return (
     <Layout home>
@@ -58,4 +44,18 @@ export default function Home({ allPosts }) {
       </section>
     </Layout>
   );
+}
+
+export async function getStaticProps() {
+  const posts = await getAllPosts();
+
+  // Destructure & rename response data for clarity
+  const { allPost: allPosts } = posts.data;
+
+  // if no values, return empty array
+  return {
+    props: {
+      allPosts: allPosts || [],
+    },
+  };
 }
