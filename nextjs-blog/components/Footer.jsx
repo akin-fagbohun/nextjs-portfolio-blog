@@ -7,46 +7,38 @@ export default function Footer() {
   return (
     <footer>
       <div className={styles.footer_group}>
-        <div className={styles.footer_links}>
-          <a
-            target="_blank"
-            href="https://github.com/akin-fagbohun"
-            rel="noreferrer"
-          >
+        <a
+          target="_blank"
+          href="https://github.com/akin-fagbohun"
+          rel="noreferrer"
+        >
+          <div className={styles.footer_links}>
             <GithubLogo />
-          </a>
-          <a
+            {/* <a
             target="_blank"
             href="https://github.com/akin-fagbohun"
             rel="noreferrer"
-          >
+            > */}
             GitHub
-          </a>
-        </div>
-        <div className={styles.footer_links}>
-          <a
-            target="_blank"
-            href="https://www.linkedin.com/in/akinfagbohun/"
-            rel="noreferrer"
-          >
+            {/* </a> */}
+          </div>
+        </a>
+        <a
+          target="_blank"
+          href="https://www.linkedin.com/in/akinfagbohun/"
+          rel="noreferrer"
+        >
+          <div className={styles.footer_links}>
             <LinkedInLogo />
-          </a>
-          <a
-            target="_blank"
-            href="https://www.linkedin.com/in/akinfagbohun/"
-            rel="noreferrer"
-          >
             LinkedIn
-          </a>
-        </div>
-        <div className={styles.footer_links}>
-          <a target="_blank" href="https://northcoders.com/" rel="noreferrer">
+          </div>
+        </a>
+        <a target="_blank" href="https://northcoders.com/" rel="noreferrer">
+          <div className={styles.footer_links}>
             <NorthcodersLogo />
-          </a>
-          <a target="_blank" href="https://northcoders.com/" rel="noreferrer">
             Northcoders
-          </a>
-        </div>
+          </div>
+        </a>
         <small className={styles.copyright}>
           © Akin Fagbohun. All rights reserved.
         </small>

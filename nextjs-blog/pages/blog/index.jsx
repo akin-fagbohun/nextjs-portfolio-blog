@@ -6,7 +6,6 @@ import Date from '../../components/date';
 import { getAllPosts } from '../../utils/api';
 
 export default function Home({ allPosts }) {
-  console.log('🚀 ~ file: index.js ~ line 23 ~ Home ~ allPosts', allPosts);
   return (
     <Layout home>
       <Head>
@@ -52,7 +51,6 @@ export async function getStaticProps() {
 
   // Destructure & rename response data for clarity
   const { allPost: allPosts } = posts.data;
-  console.log(allPosts);
 
   // if no values, return empty array
   return {

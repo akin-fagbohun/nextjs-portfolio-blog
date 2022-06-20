@@ -8,12 +8,12 @@ test('Tests footer renders with link items', () => {
   const github = screen.getByRole('link', {
     name: /GitHub/,
   });
-  // const linkedin = screen.getByRole('link', {
-  //   name: /LinkedIn/,
-  // });
-  // const northcoders = screen.getByRole('link', {
-  //   name: /Northcoders/,
-  // });
+  const linkedin = screen.getByRole('link', {
+    name: /LinkedIn/,
+  });
+  const northcoders = screen.getByRole('link', {
+    name: /Northcoders/,
+  });
 
   expect(github).toBeInTheDocument();
   expect(linkedin).toBeInTheDocument();
