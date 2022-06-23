@@ -3,22 +3,21 @@ import Layout from '../../../components/layout';
 import Date from '../../../components/date';
 import utilStyles from '../../../styles/utils.module.css';
 import { PortableText } from '@portabletext/react';
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { qtcreatorLight } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
+import { CopyBlock, atomOneDark } from 'react-code-blocks';
 import { getAllPosts } from '../../../utils/api';
 
 export default function Post({ currPost }) {
   const components = {
     types: {
       code: (props) => (
-        <SyntaxHighlighter
+        <CopyBlock
+          text={props.value.code}
           language={props.value.language}
-          style={qtcreatorLight}
-          wrapLongLines="true"
-          showLineNumbers="true"
-        >
-          {props.value.code}
-        </SyntaxHighlighter>
+          theme={atomOneDark}
+          showLineNumbers={true}
+          wrapLines
+          codeblock
+        />
       ),
     },
   };

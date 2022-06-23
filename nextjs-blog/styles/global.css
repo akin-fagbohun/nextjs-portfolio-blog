@@ -114,7 +114,7 @@ body {
   min-height: 100vh;
 }
 
-code {
+p > code {
   font-size: larger;
   color: crimson;
 }

@@ -83,7 +83,8 @@
 .postData {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
+  align-items: center;
+  /* min-width: 1080px; */
 }
 
 .postData h2 {
@@ -110,6 +111,11 @@
   padding-right: 50px;
   margin-top: 50px;
   align-self: center;
+}
+
+/* codeblock */
+.dgDDPy {
+  border-radius: 10px;
 }
 
 @media (max-width: 600px) {
