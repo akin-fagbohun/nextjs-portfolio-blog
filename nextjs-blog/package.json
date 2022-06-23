@@ -12,6 +12,7 @@
     "date-fns": "^2.28.0",
     "graphql": "^16.5.0",
     "gray-matter": "^4.0.3",
+    "gridsome-source-sanity": "^1.2.0",
     "identity-obj-proxy": "^3.0.0",
     "jest-environment-jsdom": "^28.1.1",
     "next": "latest",
