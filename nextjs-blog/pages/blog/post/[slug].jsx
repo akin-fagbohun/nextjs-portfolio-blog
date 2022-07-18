@@ -3,20 +3,20 @@ import Layout from '../../../components/layout';
 import Date from '../../../components/date';
 import utilStyles from '../../../styles/utils.module.css';
 import { PortableText } from '@portabletext/react';
-import { CopyBlock, atomOneDark } from 'react-code-blocks';
+import { CopyBlock, CodeBlock, atomOneDark } from 'react-code-blocks';
 import { getAllPosts } from '../../../utils/api';
 
 export default function Post({ currPost }) {
   const components = {
     types: {
-      code: (props) => (
+      code: props => (
         <CopyBlock
           text={props.value.code}
           language={props.value.language}
           theme={atomOneDark}
-          showLineNumbers={true}
+          showLineNumbers={false}
           wrapLines
-          codeblock
+          // codeBlock={true}
         />
       ),
     },
@@ -54,7 +54,7 @@ export async function getStaticPaths() {
   const { allPost: allPosts } = posts.data;
 
   // map over json response to get URL slugs.
-  const paths = allPosts.map((post) => {
+  const paths = allPosts.map(post => {
     const { slug } = post;
     const { current } = slug;
 
@@ -88,7 +88,7 @@ export async function getStaticProps({ params }) {
   }
 
   // filter page data based on the slug from params
-  const currPost = allPosts.filter((post) => {
+  const currPost = allPosts.filter(post => {
     const { slug } = post;
     const { current } = slug;
 
