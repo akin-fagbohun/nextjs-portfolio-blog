@@ -3,8 +3,6 @@ import Image from 'next/image';
 import styles from '../styles/layout.module.css';
 import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
-import Navbar from './Navbar';
-import Footer from './Footer';
 
 const name = 'Akin';
 export const siteTitle = "Akin's blog";

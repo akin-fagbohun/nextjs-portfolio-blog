@@ -825,14 +825,14 @@ export type StringFilter = {
   nin?: InputMaybe<Array<Scalars['String']>>;
 };
 
-export type GetAllBlogPostsQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetBlogPostsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetAllBlogPostsQuery = { __typename?: 'RootQuery', allPost: Array<{ __typename?: 'Post', _id?: string | null, title?: string | null, publishDate?: any | null, readTime?: number | null, contentRaw?: any | null, slug?: { __typename?: 'Slug', current?: string | null } | null }> };
+export type GetBlogPostsQuery = { __typename?: 'RootQuery', allPost: Array<{ __typename?: 'Post', _id?: string | null, title?: string | null, publishDate?: any | null, readTime?: number | null, contentRaw?: any | null, slug?: { __typename?: 'Slug', current?: string | null } | null }> };
 
 
-export const GetAllBlogPostsDocument = gql`
-    query GetAllBlogPosts {
+export const GetBlogPostsDocument = gql`
+    query GetBlogPosts {
   allPost(sort: {publishDate: DESC}) {
     _id
     title
@@ -847,28 +847,28 @@ export const GetAllBlogPostsDocument = gql`
     `;
 
 /**
- * __useGetAllBlogPostsQuery__
+ * __useGetBlogPostsQuery__
  *
- * To run a query within a React component, call `useGetAllBlogPostsQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetAllBlogPostsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useGetBlogPostsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetBlogPostsQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useGetAllBlogPostsQuery({
+ * const { data, loading, error } = useGetBlogPostsQuery({
  *   variables: {
  *   },
  * });
  */
-export function useGetAllBlogPostsQuery(baseOptions?: Apollo.QueryHookOptions<GetAllBlogPostsQuery, GetAllBlogPostsQueryVariables>) {
+export function useGetBlogPostsQuery(baseOptions?: Apollo.QueryHookOptions<GetBlogPostsQuery, GetBlogPostsQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetAllBlogPostsQuery, GetAllBlogPostsQueryVariables>(GetAllBlogPostsDocument, options);
+        return Apollo.useQuery<GetBlogPostsQuery, GetBlogPostsQueryVariables>(GetBlogPostsDocument, options);
       }
-export function useGetAllBlogPostsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetAllBlogPostsQuery, GetAllBlogPostsQueryVariables>) {
+export function useGetBlogPostsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetBlogPostsQuery, GetBlogPostsQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetAllBlogPostsQuery, GetAllBlogPostsQueryVariables>(GetAllBlogPostsDocument, options);
+          return Apollo.useLazyQuery<GetBlogPostsQuery, GetBlogPostsQueryVariables>(GetBlogPostsDocument, options);
         }
-export type GetAllBlogPostsQueryHookResult = ReturnType<typeof useGetAllBlogPostsQuery>;
-export type GetAllBlogPostsLazyQueryHookResult = ReturnType<typeof useGetAllBlogPostsLazyQuery>;
-export type GetAllBlogPostsQueryResult = Apollo.QueryResult<GetAllBlogPostsQuery, GetAllBlogPostsQueryVariables>;
+export type GetBlogPostsQueryHookResult = ReturnType<typeof useGetBlogPostsQuery>;
+export type GetBlogPostsLazyQueryHookResult = ReturnType<typeof useGetBlogPostsLazyQuery>;
+export type GetBlogPostsQueryResult = Apollo.QueryResult<GetBlogPostsQuery, GetBlogPostsQueryVariables>;

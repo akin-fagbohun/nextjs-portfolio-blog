@@ -3,8 +3,8 @@
  * pages.
  */
 
-export const AllBlogPosts = /* GraphQL */ `
-  query GetAllBlogPosts {
+export const GetBlogPosts = /* GraphQL */ `
+  query GetBlogPosts {
     # Query gets all blog posts from Sanity
     allPost(sort: { publishDate: DESC }) {
       _id
