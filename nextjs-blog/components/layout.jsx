@@ -27,7 +27,6 @@ export default function Layout({ children, home }) {
         <meta name="og:title" content={siteTitle} />
         <meta name="github:card" content="summary_large_image" />
       </Head>
-      <Navbar />
       <header className={styles.header}>
         {home ? (
           <>
@@ -71,7 +70,6 @@ export default function Layout({ children, home }) {
           </Link>
         </div>
       )}
-      <Footer />
     </div>
   );
 }

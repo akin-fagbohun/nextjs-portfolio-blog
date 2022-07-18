@@ -1,12 +1,19 @@
-import { ApolloProvider } from '@apollo/client';
-import client from '../lib/graphql';
-
+import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import '../styles/global.css';
+
+const client = new ApolloClient({
+  cache: new InMemoryCache(),
+  uri: process.env.NEXT_PUBLIC_SANITY_API,
+});
 
 export default function App({ Component, pageProps }) {
   return (
     <ApolloProvider client={client}>
+      <Navbar />
       <Component {...pageProps} />
+      <Footer />
     </ApolloProvider>
   );
 }

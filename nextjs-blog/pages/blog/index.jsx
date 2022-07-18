@@ -1,17 +1,19 @@
 import Head from 'next/head';
 import Layout, { siteTitle } from '../../components/layout';
-import utilStyles from '../../styles/utils.module.css';
-import Link from 'next/link';
-import Date from '../../components/date';
-import { getAllPosts } from '../../utils/api';
+// import utilStyles from '../../styles/utils.module.css';
+// import Link from 'next/link';
+// import Date from '../../components/date';
 
-export default function Home({ allPosts }) {
+// import { getAllPosts } from '../../utils/api';
+
+export default function Home(/* { allPosts  } */) {
   return (
     <Layout home>
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={utilStyles.centered}>
+      <div>Blog Posts</div>
+      {/* <section className={utilStyles.centered}>
         <p>
           Hello, I&apos;m Akin. I&apos;m a full-stack developer exploring new
           technologies and documenting my journey through software development.
@@ -41,21 +43,21 @@ export default function Home({ allPosts }) {
             </li>
           ))}
         </ul>
-      </section>
+      </section> */}
     </Layout>
   );
 }
 
-export async function getStaticProps() {
-  const posts = await getAllPosts();
+// export async function getStaticProps() {
+//   const posts = await getAllPosts();
 
-  // Destructure & rename response data for clarity
-  const { allPost: allPosts } = posts.data;
+//   // Destructure & rename response data for clarity
+//   const { allPost: allPosts } = posts.data;
 
-  // if no values, return empty array
-  return {
-    props: {
-      allPosts: allPosts || [],
-    },
-  };
-}
+//   // if no values, return empty array
+//   return {
+//     props: {
+//       allPosts: allPosts || [],
+//     },
+//   };
+// }
