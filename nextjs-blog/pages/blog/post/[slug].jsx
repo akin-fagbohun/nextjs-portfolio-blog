@@ -2,7 +2,6 @@ import Head from 'next/head';
 import Layout from '../../../components/layout';
 import Date from '../../../components/date';
 import { PortableText } from '@portabletext/react';
-import { CopyBlock, atomOneDark } from 'react-code-blocks';
 import styled from 'styled-components';
 import { useGetSingleBlogPostQuery } from '../../../generated/graphql.tsx';
 
@@ -28,14 +27,15 @@ export default function Post({ slug }) {
   const components = {
     types: {
       code: (props) => (
-        <CopyBlock
-          text={props.value.code}
-          language={props.value.language}
-          theme={atomOneDark}
-          showLineNumbers={false}
-          wrapLines
-          // codeBlock={true}
-        />
+        // <CopyBlock
+        //   text={props.value.code}
+        //   language={props.value.language}
+        //   theme={atomOneDark}
+        //   showLineNumbers={false}
+        //   wrapLines
+        //   // codeBlock={true}
+        // />
+        <pre>{props.value.code}</pre>
       ),
     },
   };
