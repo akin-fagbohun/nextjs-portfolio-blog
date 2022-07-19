@@ -58,7 +58,6 @@ export default function Home(/* { allPosts  } */) {
 
   if (data) {
     const { allPost: allPosts } = data;
-    console.log('🚀 ~ file: index.jsx ~ line 18 ~ Home ~ allPosts', allPosts);
 
     return (
       <Layout home>

@@ -46,11 +46,6 @@ export default function Post({ slug }) {
   }
 
   if (data) {
-    console.log(
-      '🚀 ~ file: [slug].jsx ~ line 49 ~ Post ~ allpost',
-      data.allPost
-    );
-
     return (
       <Layout>
         <Head>
