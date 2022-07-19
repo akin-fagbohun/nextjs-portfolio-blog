@@ -830,6 +830,13 @@ export type GetBlogPostsQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type GetBlogPostsQuery = { __typename?: 'RootQuery', allPost: Array<{ __typename?: 'Post', _id?: string | null, title?: string | null, publishDate?: any | null, readTime?: number | null, contentRaw?: any | null, slug?: { __typename?: 'Slug', current?: string | null } | null }> };
 
+export type GetSingleBlogPostQueryVariables = Exact<{
+  slug: Scalars['String'];
+}>;
+
+
+export type GetSingleBlogPostQuery = { __typename?: 'RootQuery', allPost: Array<{ __typename?: 'Post', _id?: string | null, title?: string | null, publishDate?: any | null, readTime?: number | null, contentRaw?: any | null, slug?: { __typename?: 'Slug', current?: string | null } | null }> };
+
 
 export const GetBlogPostsDocument = gql`
     query GetBlogPosts {
@@ -872,3 +879,45 @@ export function useGetBlogPostsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptio
 export type GetBlogPostsQueryHookResult = ReturnType<typeof useGetBlogPostsQuery>;
 export type GetBlogPostsLazyQueryHookResult = ReturnType<typeof useGetBlogPostsLazyQuery>;
 export type GetBlogPostsQueryResult = Apollo.QueryResult<GetBlogPostsQuery, GetBlogPostsQueryVariables>;
+export const GetSingleBlogPostDocument = gql`
+    query GetSingleBlogPost($slug: String!) {
+  allPost(where: {slug: {current: {eq: $slug}}}) {
+    _id
+    title
+    publishDate
+    readTime
+    slug {
+      current
+    }
+    contentRaw
+  }
+}
+    `;
+
+/**
+ * __useGetSingleBlogPostQuery__
+ *
+ * To run a query within a React component, call `useGetSingleBlogPostQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetSingleBlogPostQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetSingleBlogPostQuery({
+ *   variables: {
+ *      slug: // value for 'slug'
+ *   },
+ * });
+ */
+export function useGetSingleBlogPostQuery(baseOptions: Apollo.QueryHookOptions<GetSingleBlogPostQuery, GetSingleBlogPostQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetSingleBlogPostQuery, GetSingleBlogPostQueryVariables>(GetSingleBlogPostDocument, options);
+      }
+export function useGetSingleBlogPostLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetSingleBlogPostQuery, GetSingleBlogPostQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetSingleBlogPostQuery, GetSingleBlogPostQueryVariables>(GetSingleBlogPostDocument, options);
+        }
+export type GetSingleBlogPostQueryHookResult = ReturnType<typeof useGetSingleBlogPostQuery>;
+export type GetSingleBlogPostLazyQueryHookResult = ReturnType<typeof useGetSingleBlogPostLazyQuery>;
+export type GetSingleBlogPostQueryResult = Apollo.QueryResult<GetSingleBlogPostQuery, GetSingleBlogPostQueryVariables>;

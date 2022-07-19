@@ -2,8 +2,6 @@ import Head from 'next/head';
 import Layout, { siteTitle } from '../../components/layout';
 import { useGetBlogPostsQuery } from '../../generated/graphql.tsx';
 import styled from 'styled-components';
-
-// import utilStyles from '../../styles/utils.module.css';
 import Link from 'next/link';
 import Date from '../../components/date';
 
@@ -100,17 +98,3 @@ export default function Home(/* { allPosts  } */) {
     );
   }
 }
-
-// export async function getStaticProps() {
-//   const posts = await getAllPosts();
-
-//   // Destructure & rename response data for clarity
-//   const { allPost: allPosts } = posts.data;
-
-//   // if no values, return empty array
-//   return {
-//     props: {
-//       allPosts: allPosts || [],
-//     },
-//   };
-// }
