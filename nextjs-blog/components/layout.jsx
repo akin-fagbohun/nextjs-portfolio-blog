@@ -3,8 +3,6 @@ import Image from 'next/image';
 import styles from '../styles/layout.module.css';
 import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
-import Navbar from './Navbar';
-import Footer from './Footer';
 
 const name = 'Akin';
 export const siteTitle = "Akin's blog";
@@ -27,7 +25,6 @@ export default function Layout({ children, home }) {
         <meta name="og:title" content={siteTitle} />
         <meta name="github:card" content="summary_large_image" />
       </Head>
-      <Navbar />
       <header className={styles.header}>
         {home ? (
           <>
@@ -71,7 +68,6 @@ export default function Layout({ children, home }) {
           </Link>
         </div>
       )}
-      <Footer />
     </div>
   );
 }

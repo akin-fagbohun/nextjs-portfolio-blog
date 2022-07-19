@@ -1,7 +1,21 @@
+import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import '../styles/global.css';
 
+const client = new ApolloClient({
+  cache: new InMemoryCache(),
+  uri: process.env.NEXT_PUBLIC_SANITY_API,
+});
+
 export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+  return (
+    <ApolloProvider client={client}>
+      <Navbar />
+      <Component {...pageProps} />
+      <Footer />
+    </ApolloProvider>
+  );
 }
 
 // Only uncomment this method if you have blocking data requirements for

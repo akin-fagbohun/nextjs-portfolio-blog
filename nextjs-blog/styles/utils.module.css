@@ -113,11 +113,6 @@
   align-self: center;
 }
 
-/* codeblock */
-.dgDDPy {
-  border-radius: 10px;
-}
-
 @media (max-width: 600px) {
   .centered {
     padding-left: 0px;
@@ -140,5 +135,11 @@
 
   .left {
     padding-left: 50px;
+  }
+}
+
+@media (min-width: 850px) {
+  .dgDDPy {
+    min-width: 820px;
   }
 }

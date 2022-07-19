@@ -22,10 +22,6 @@ export const getAllPosts = async () => {
     headers: {
       'content-type': 'application/json',
     },
-    body: JSON.stringify({
-      query: graphQlQuery,
-      variables: {},
-    }),
   };
 
   // asyncronous FETCH request.
