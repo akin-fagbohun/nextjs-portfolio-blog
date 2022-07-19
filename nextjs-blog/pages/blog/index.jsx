@@ -54,7 +54,10 @@ export default function Home(/* { allPosts  } */) {
 
   if (loading) return <p>loading...</p>;
 
-  if (error) return <p>error loading posts...</p>;
+  if (error) {
+    console.log(error);
+    return <p>error loading posts...</p>;
+  }
 
   if (data) {
     const { allPost: allPosts } = data;
