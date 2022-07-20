@@ -4,9 +4,17 @@
   status = 301
   force = true
 
+[[headers]]
+  # Define which paths this specific [[headers]] block will cover.
+  for = "/*"
+    [headers.values]
+    Access-Control-Allow-Origin = "*"
+
 [[plugins]]
 package = "@netlify/plugin-nextjs"
 
 [build]
   command = "npm run build"
   publish = ".next"
+
+
