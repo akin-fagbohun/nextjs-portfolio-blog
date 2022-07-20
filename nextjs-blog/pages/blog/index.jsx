@@ -55,7 +55,7 @@ export default function Home(/* { allPosts  } */) {
   if (loading) return <p>loading...</p>;
 
   if (error) {
-    console.log(error);
+    console.log('🚀 ~ file: index.jsx ~ line 58 ~ Home ~ error', error);
     return <p>error loading posts...</p>;
   }
 
