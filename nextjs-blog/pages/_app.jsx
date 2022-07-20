@@ -1,11 +1,21 @@
-import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
+import {
+  ApolloProvider,
+  ApolloClient,
+  InMemoryCache,
+  HttpLink,
+} from '@apollo/client';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import '../styles/global.css';
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
-  uri: 'https://hy1d38la.api.sanity.io/v1/graphql/production/default',
+  link: new HttpLink({
+    uri: process.env.NEXT_PUBLIC_SANITY_API,
+    fetchOptions: {
+      mode: 'no-cors',
+    },
+  }),
 });
 
 export default function App({ Component, pageProps }) {
