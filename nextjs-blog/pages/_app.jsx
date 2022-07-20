@@ -10,7 +10,7 @@ import '../styles/global.css';
 
 const client = new ApolloClient({
   link: new HttpLink({
-    uri: process.env.NEXT_PUBLIC_SANITY_API,
+    uri: 'https://hy1d38la.api.sanity.io/v1/graphql/production/default',
     // fetchOptions: {
     //   mode: 'no-cors',
     // },
