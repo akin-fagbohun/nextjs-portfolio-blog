@@ -9,13 +9,13 @@ import Footer from '../components/Footer';
 import '../styles/global.css';
 
 const client = new ApolloClient({
-  cache: new InMemoryCache(),
   link: new HttpLink({
     uri: process.env.NEXT_PUBLIC_SANITY_API,
-    fetchOptions: {
-      mode: 'no-cors',
-    },
+    // fetchOptions: {
+    //   mode: 'no-cors',
+    // },
   }),
+  cache: new InMemoryCache(),
 });
 
 export default function App({ Component, pageProps }) {
