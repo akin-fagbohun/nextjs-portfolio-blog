@@ -11,9 +11,9 @@ import '../styles/global.css';
 const client = new ApolloClient({
   link: new HttpLink({
     uri: 'https://hy1d38la.api.sanity.io/v1/graphql/production/default',
-    fetchOptions: {
-      mode: 'no-cors',
-    },
+    // fetchOptions: {
+    //   mode: 'no-cors',
+    // },
     // credentials: 'include',
   }),
   cache: new InMemoryCache(),
