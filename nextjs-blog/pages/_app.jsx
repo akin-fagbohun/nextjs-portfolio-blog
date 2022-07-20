@@ -14,7 +14,7 @@ const client = new ApolloClient({
     // fetchOptions: {
     //   mode: 'no-cors',
     // },
-    credentials: 'same-origin',
+    credentials: 'include',
   }),
   cache: new InMemoryCache(),
 });
