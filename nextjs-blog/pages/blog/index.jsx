@@ -74,9 +74,9 @@ export default function Home(/* { allPosts  } */) {
             development.
           </p>
           <p>
-            As part of my foray into Next.js, I added this blog to my portfolio
-            site, so it&apos;s only right that I use it to share my thoughts!
-            Have a read -I hope you enjoy!
+            As part of my foray into Next.js, I&apos;ve added this blog to my
+            portfolio site, so it&apos;s only right that I use it to share my
+            thoughts! Have a read -I hope you enjoy!
           </p>
         </StyledBioSection>
         <StyledPostSection>
