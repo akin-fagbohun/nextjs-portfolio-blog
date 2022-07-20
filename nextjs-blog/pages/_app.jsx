@@ -5,7 +5,7 @@ import '../styles/global.css';
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
-  uri: process.env.NEXT_PUBLIC_SANITY_API,
+  uri: 'https://hy1d38la.api.sanity.io/v1/graphql/production/default',
 });
 
 export default function App({ Component, pageProps }) {
