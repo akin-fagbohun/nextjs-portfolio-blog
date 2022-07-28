@@ -2,22 +2,9 @@ import Head from 'next/head';
 import Layout from '../../../components/layout';
 import Date from '../../../components/date';
 import { PortableText } from '@portabletext/react';
-import styled from 'styled-components';
 import { useGetSingleBlogPostQuery } from '../../../generated/graphql.tsx';
-
-const StyledH1 = styled.h1`
-  font-size: 2rem;
-  line-height: 1.3;
-  font-weight: 800;
-  letter-spacing: -0.05rem;
-  margin: 1rem 0;
-`;
-
-const StyledPost = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
+import { StyledH1 } from '../../../components/StyledComponents/StyledText';
+import { StyledPostContainer } from '../../../components/StyledComponents/StyledDivs';
 
 export default function Post({ slug }) {
   const { loading, error, data } = useGetSingleBlogPostQuery({
@@ -59,12 +46,12 @@ export default function Post({ slug }) {
             </div>
             <small>{data.allPost[0].readTime} minute read</small>
           </div>
-          <StyledPost>
+          <StyledPostContainer>
             <PortableText
               value={data.allPost[0].contentRaw}
               components={components}
             />
-          </StyledPost>
+          </StyledPostContainer>
         </article>
       </Layout>
     );

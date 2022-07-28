@@ -3,8 +3,8 @@ import Layout, { siteTitle } from '../../components/layout';
 import { useGetBlogPostsQuery } from '../../generated/graphql.tsx';
 import Link from 'next/link';
 import Date from '../../components/date';
-import { StyledBioSection } from '../../components/StyledComponents/StyledBioSection';
-import { StyledPostSection } from '../../components/StyledComponents/StyledPostSection';
+import { StyledBioSection } from '../../components/StyledComponents/StyledSections';
+import { StyledPostSection } from '../../components/StyledComponents/StyledSections';
 import { StyledH2 } from '../../components/StyledComponents/StyledText';
 import { StyledUl } from '../../components/StyledComponents/StyledLists';
 
