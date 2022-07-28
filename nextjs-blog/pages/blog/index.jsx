@@ -1,53 +1,12 @@
 import Head from 'next/head';
 import Layout, { siteTitle } from '../../components/layout';
 import { useGetBlogPostsQuery } from '../../generated/graphql.tsx';
-import styled from 'styled-components';
 import Link from 'next/link';
 import Date from '../../components/date';
-
-const StyledBioSection = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 1.2rem;
-  line-height: 1.5;
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-top: 30px;
-`;
-
-const StyledPostSection = styled.section`
-  display: flex;
-  flex-direction: column;
-  font-size: 1.2rem;
-  line-height: 1.5;
-  padding-left: 120px;
-  padding-right: 50px;
-  padding-top: 30px;
-  max-width: 50rem;
-  margin-top: 30px;
-  align-self: flex-start;
-`;
-
-const StyledH2 = styled.h2`
-  font-size: 1.5rem;
-  line-height: 1.4;
-  margin: 1rem 0;
-`;
-
-const StyledUl = styled.ul`
-  list-style: none;
-  padding: 0;
-  margin: 0;
-
-  li {
-    margin: 0 0 1.25rem;
-  }
-
-  small {
-    color: #666;
-  }
-`;
+import { StyledBioSection } from '../../components/StyledComponents/StyledBioSection';
+import { StyledPostSection } from '../../components/StyledComponents/StyledPostSection';
+import { StyledH2 } from '../../components/StyledComponents/StyledText';
+import { StyledUl } from '../../components/StyledComponents/StyledLists';
 
 export default function Home(/* { allPosts  } */) {
   const { loading, error, data } = useGetBlogPostsQuery();
